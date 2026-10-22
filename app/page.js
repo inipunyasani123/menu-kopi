@@ -28,9 +28,9 @@ export default function Halaman() {
     <>
       <header className="sticky top-0 z-40 border-b border-susu bg-kertas/95 backdrop-blur">
         <div className="wadah flex h-14 items-center gap-3">
-          <a href="#top" className="flex items-center gap-2.5" aria-label={`${site.nama}, ke atas`}>
+          <a href="#top" className="flex items-center gap-2.5">
             <Tanda className="h-8 w-8 text-kopi" />
-            <span className="whitespace-nowrap font-display text-[1.2rem] leading-none tracking-tight sm:text-[1.35rem]">{site.nama}</span>
+            <span className="whitespace-nowrap font-display text-[1.2rem] leading-none tracking-tight sm:text-[1.35rem]">{site.nama}<span className="sr-only">, ke atas</span></span>
           </a>
           <div className="ms-auto flex items-center gap-2 sm:gap-4">
             <span className="hidden sm:block"><StatusBuka /></span>
@@ -116,7 +116,7 @@ export default function Halaman() {
                   ['Kirim lewat WhatsApp', 'Pesanan tersusun rapi sebagai pesan. Bayar di kasir atau lewat QRIS saat diantar.'],
                 ].map(([j, d], i) => (
                   <li key={j} className="border-t border-malam-2 pt-3">
-                    <p className="font-display text-lg text-kertas"><span className="text-karamel">{i + 1}.</span> {j}</p>
+                    <p className="font-display text-lg text-kertas"><span className="text-karamel-terang">{i + 1}.</span> {j}</p>
                     <p className="mt-1 text-sm leading-relaxed text-susu-tua">{d}</p>
                   </li>
                 ))}

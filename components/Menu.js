@@ -34,15 +34,15 @@ function Tag({ t }) {
 function Baris({ m, onPilih }) {
   const bisaDingin = m.opsi?.some((o) => o.id === 'suhu' || o.id === 'sajian');
   return (
-    <li className={`group relative py-4 ${m.habis ? 'opacity-60' : ''}`}>
+    <li className="group relative py-4">
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           <div className="baris-harga">
-            <h3 className="font-display text-[1.15rem] leading-tight text-kopi" style={{ fontVariationSettings: '"SOFT" 60, "WONK" 1' }}>{m.nama}</h3>
-            <span className="titik" aria-hidden="true" />
-            <span className="shrink-0 text-[0.98rem] font-semibold">{rupiah(m.harga)}</span>
+            <h3 className={`font-display text-[1.15rem] leading-tight ${m.habis ? 'text-kopi-3' : 'text-kopi'}`} style={{ fontVariationSettings: '"SOFT" 60, "WONK" 1' }}>{m.nama}</h3>
+            <span className={`titik ${m.habis ? 'opacity-50' : ''}`} aria-hidden="true" />
+            <span className={`shrink-0 text-[0.98rem] font-semibold ${m.habis ? 'text-kopi-3 line-through decoration-1' : ''}`}>{rupiah(m.harga)}</span>
           </div>
-          <p className="mt-1 pe-10 text-[0.92rem] leading-snug text-kopi-2">{m.deskripsi}</p>
+          <p className={`mt-1 pe-10 text-[0.92rem] leading-snug ${m.habis ? 'text-kopi-3' : 'text-kopi-2'}`}>{m.deskripsi}</p>
           <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-kopi-3">
             {m.kategori !== 'biji' && <Kafein n={m.kafein} />}
             {m.seduh && <span className="font-medium tracking-wide">{m.seduh}</span>}
@@ -56,7 +56,7 @@ function Baris({ m, onPilih }) {
           onClick={() => onPilih(m)}
           disabled={m.habis}
           aria-label={m.habis ? `${m.nama} habis` : `Tambah ${m.nama}${m.opsi?.length ? ', pilih opsi' : ''}`}
-          className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-full border-1.5 border-susu-tua text-kopi transition hover:border-kopi hover:bg-kopi hover:text-kertas disabled:cursor-not-allowed disabled:hover:border-susu-tua disabled:hover:bg-transparent disabled:hover:text-kopi"
+          className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-full border-1.5 border-susu-tua text-kopi transition hover:border-kopi hover:bg-kopi hover:text-kertas disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-susu-tua disabled:hover:bg-transparent disabled:hover:text-kopi"
         >
           <Plus className="h-5 w-5" />
         </button>
