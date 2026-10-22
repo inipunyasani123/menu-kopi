@@ -1,9 +1,30 @@
 import './globals.css';
-import { Fraunces, Instrument_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import { site, kategori, menu, itemKategori } from '@/lib/data';
 
-const fraunces = Fraunces({ subsets: ['latin'], style: ['normal', 'italic'], axes: ['opsz', 'SOFT', 'WONK'], variable: '--font-fraunces', display: 'swap' });
-const instrument = Instrument_Sans({ subsets: ['latin'], variable: '--font-instrument', display: 'swap' });
+// Fraunces & Instrument Sans (OFL, app/fonts/OFL-*.txt) di-host sendiri dari irisan latin Google Fonts yang sama, dipersempit
+// ke variasi yang benar-benar dirender (fontTools varLib.instancer + pyftsubset): versi Google penuh ±294 KB menahan LCP.
+// - Fraunces-400: wght 400, SOFT 0, WONK 0, opsz 16–28 (nama kedai, langkah pindai, FAQ, kartu QR)
+// - Fraunces-500: wght 500, WONK 1, SOFT 40–60, opsz 16–74 (h1–h3; h3 item memakai SOFT 60)
+// - Fraunces-Italic: wght 400, SOFT 100, WONK 1, opsz 44–74, hanya a–z (kata "perlahan" di hero)
+// - Instrument Sans: wght 400–600, Latin + Latin-1 (isian tamu ikut tercakup)
+// Glyph Fraunces: ASCII + © ° · × è é – — ‘ ’ “ ” …. Bila memakai bobot/variasi/aksara lain, buat ulang subsetnya.
+const fraunces = localFont({
+  src: [
+    { path: './fonts/Fraunces-400.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/Fraunces-500.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/Fraunces-Italic.woff2', weight: '400', style: 'italic' },
+  ],
+  variable: '--font-fraunces',
+  display: 'swap',
+  adjustFontFallback: 'Times New Roman',
+});
+const instrument = localFont({
+  src: [{ path: './fonts/InstrumentSans.woff2', weight: '400 600', style: 'normal' }],
+  variable: '--font-instrument',
+  display: 'swap',
+  adjustFontFallback: 'Arial',
+});
 
 const HARI = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const jam24 = (j) => j.replace('.', ':');
