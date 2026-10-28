@@ -9,6 +9,7 @@ import Nampan from '@/components/Nampan';
 import QR from '@/components/QR';
 import Footer from '@/components/Footer';
 import { Pindai, Cangkir, Daun } from '@/components/Ikon';
+import FotoMenu from '@/components/FotoMenu';
 
 export const metadata = { alternates: { canonical: '/' } };
 
@@ -59,6 +60,7 @@ export default function Halaman() {
                 <a href="#isi" className="tombol tombol-kopi">Lihat menu</a>
                 <span className="sm:hidden"><StatusBuka /></span>
               </div>
+              <FotoMenu id="hero" alt="Barista menuang air panas ke corong seduh manual di meja bar" priority sizes="(min-width: 1024px) 640px, 92vw" className="mt-8 aspect-[16/10] w-full rounded-[18px]" />
             </div>
 
             {/* Kartu cupping minggu ini */}
@@ -67,6 +69,7 @@ export default function Halaman() {
                 <p id="judul-cupping" className="label-cupping">Biji minggu ini</p>
                 <Cangkir className="h-5 w-5 text-karamel" />
               </div>
+              <FotoMenu id="biji" alt={`Biji kopi sangrai ${site.bijiMingguIni.nama}`} sizes="(min-width: 1024px) 420px, 92vw" className="mt-3 aspect-[4/3] w-full rounded-[12px]" />
               <p className="mt-2 font-display text-[1.7rem] leading-tight">{site.bijiMingguIni.nama}</p>
               <p className="mt-1 text-sm text-kopi-2">Catatan rasa: {site.bijiMingguIni.rasa}.</p>
               <dl className="mt-5 grid grid-cols-3 divide-x divide-susu border-t border-susu pt-4 text-center">

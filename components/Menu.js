@@ -5,6 +5,7 @@ import { kategori, menu } from '@/lib/data';
 import { rupiah } from '@/lib/format';
 import { useNampan } from '@/lib/nampan';
 import { Plus, Minus, Cari, Tutup, Centang } from './Ikon';
+import FotoMenu from './FotoMenu';
 
 const SARING = [
   { id: 'favorit', label: 'Favorit', uji: (m) => m.tag?.includes('favorit') },
@@ -36,6 +37,7 @@ function Baris({ m, onPilih }) {
   return (
     <li className="group relative py-4">
       <div className="flex items-start gap-3">
+        <FotoMenu id={m.id} sizes="80px" className={`h-[4.5rem] w-[4.5rem] shrink-0 rounded-[14px] sm:h-20 sm:w-20 ${m.habis ? 'opacity-50 grayscale' : ''}`} />
         <div className="min-w-0 flex-1">
           <div className="baris-harga">
             <h3 className={`font-display text-[1.15rem] leading-tight ${m.habis ? 'text-kopi-3' : 'text-kopi'}`} style={{ fontVariationSettings: '"SOFT" 60, "WONK" 1' }}>{m.nama}</h3>
@@ -99,7 +101,8 @@ function LembarPilihan({ item, onTutup, onTambah }) {
         }}
       >
         <div className="flex items-start justify-between gap-4 border-b border-susu px-5 pt-5 pb-4">
-          <div>
+          <FotoMenu id={item.id} sizes="80px" className="h-20 w-20 shrink-0 rounded-[14px]" />
+          <div className="min-w-0 flex-1">
             <p className="label-cupping">{kategori.find((k) => k.id === item.kategori)?.nama}</p>
             <h2 id="judul-pilihan" className="mt-1 text-2xl">{item.nama}</h2>
             <p className="mt-1.5 text-sm text-kopi-2">{item.deskripsi}</p>
