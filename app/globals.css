@@ -69,7 +69,7 @@
   /* Label kecil gaya kartu cupping */
   .label-cupping {
     font-family: var(--font-sans);
-    font-size: 0.72rem;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;

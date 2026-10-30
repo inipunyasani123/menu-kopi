@@ -29,7 +29,7 @@ function Kafein({ n }) {
 function Tag({ t }) {
   const gaya = { favorit: 'bg-karamel-tua text-white', baru: 'bg-daun text-white', nabati: 'bg-daun-muda text-daun' };
   const teks = { favorit: 'Favorit', baru: 'Baru', nabati: 'Nabati' };
-  return <span className={`rounded-full px-2 py-0.5 text-[0.68rem] font-semibold uppercase tracking-wide ${gaya[t]}`}>{teks[t]}</span>;
+  return <span className={`rounded-full px-2 py-0.5 text-[12px] font-semibold uppercase tracking-wide ${gaya[t]}`}>{teks[t]}</span>;
 }
 
 function Baris({ m, onPilih }) {

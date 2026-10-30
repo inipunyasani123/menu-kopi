@@ -75,7 +75,7 @@ export default function Halaman() {
               <dl className="mt-5 grid grid-cols-3 divide-x divide-susu border-t border-susu pt-4 text-center">
                 {[['Rasio', site.rasio.air], ['Air', site.rasio.suhu], ['Waktu', site.rasio.waktu]].map(([k, v]) => (
                   <div key={k} className="px-2">
-                    <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-kopi-3">{k}</dt>
+                    <dt className="text-[12px] font-semibold uppercase tracking-[0.14em] text-kopi-3">{k}</dt>
                     <dd className="mt-1 font-display text-lg leading-none">{v}</dd>
                   </div>
                 ))}
@@ -133,7 +133,7 @@ export default function Halaman() {
                 </div>
                 <QR url={`${site.url}/?meja=${CONTOH_MEJA}`} className="mt-3 h-44 w-44 text-kopi sm:h-52 sm:w-52" label={`Kode QR contoh untuk meja ${CONTOH_MEJA}`} />
                 <p className="mt-3 text-center font-display text-base">{site.nama}</p>
-                <p className="text-center text-[0.7rem] text-kopi-3">menu-kopi.pintuweb.id/?meja={CONTOH_MEJA}</p>
+                <p className="text-center text-[12px] text-kopi-3">menu-kopi.pintuweb.id/?meja={CONTOH_MEJA}</p>
               </div>
             </div>
           </div>
